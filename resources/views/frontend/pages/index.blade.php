@@ -49,20 +49,29 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-4">
-                   @if($message=null)?<h1>No Photo Found</h1>:<img class="img-fluid img-rounded" src="{{ asset($message->photo) }}" alt="">
+                   @if($message==null)
+                   <h1>No Photo Found</h1>
+                   @else
+                   <img class="img-fluid img-rounded" src="{{ asset($message->photo) }}" alt="">
                    @endif
                 </div>
                 <div class="col-md-8">
                     <img src="" alt="">
-                    @if($message=null)?<h1>No title Found</h1>:
+                    @if($message==null)
+                    <h1>No title Found</h1>
+                    @else
                     <h1>{{ $message->title }}</h1>
                     @endif
                     <div class="line"></div>
-                    @if($message=null)?<h1>No description Found</h1>:
+                    @if($message==null)
+                    <h1>No description Found</h1>
+                    @else
                     {!! Str::limit($message->description,900) !!}
                     @endif
                     <div></div>
-                    @if($message=null)?<h1>No Id Found</h1>:
+                    @if($message==null)
+                    <h1>No Id Found</h1>
+                    @else
                     <a href="/about-us/{{ $message->id }}" class="btn btn-danger mt-3 float-end">Readmore</a>
                     @endif
             </div>

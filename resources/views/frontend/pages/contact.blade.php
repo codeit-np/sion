@@ -41,7 +41,11 @@
                 </div>
                 <hr class="my-5">
                 <h5 class="mb-3">Our Location</h5>
-                <p>Itahari<br>Sunsari-06 Near I-cinema<br><br>Phone:9815047812,9807950017<br>Email:QuadTechSolutionIT@gmail.com</p>
+                <address>
+                    {{ $setting->address }} <br>
+                    <strong>Tel: </strong> {{ $setting->contact }} <br>
+                    <strong>Email</strong> {{ $setting->email }}
+                </address>
             </div>
 
         </div>
@@ -53,7 +57,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12" id="btnGetDirection">
-           @if($setting=null)?<h2>No Data Found</h2>:{{$setting->googlemap}}
+           @if($setting==null)
+           <h2>No Data Found</h2>
+           @else
+           {!!  $setting->googlemap !!}
            @endif
         </div>
     </div>

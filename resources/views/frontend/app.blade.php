@@ -39,9 +39,11 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container">
               <a class="navbar-brand" href="/">
-                @if($setting=null)?<h1>No Title Found</h1>:
-                  <img src="{{asset($setting->logo) }}" width="62" alt="">
-                  @endif
+                @if($setting==null)
+                <h1>No Title Found</h1>
+                @else
+                <img src="{{asset($setting->logo) }}" width="62" alt="">
+                @endif
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,9 +59,11 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         @foreach ($aboutMenue as $item)
-                        @if($item=null)?No data found:
-                             <li><a class="dropdown-item" href="/about-us/{{ $item->id }}">{{ $item->title }}</a></li>
-                             @endif
+                        @if($item==null)
+                        No data found:
+                        @else
+                        <li><a class="dropdown-item" href="/about-us/{{ $item->id }}">{{ $item->title }}</a></li>
+                        @endif
                         @endforeach
 
                     </ul>

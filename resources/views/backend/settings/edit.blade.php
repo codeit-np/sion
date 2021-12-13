@@ -77,9 +77,9 @@
 
                                <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="time">Google Map</label>
-                                    <input id="google map" class="form-control" type="text" name="googlemap" placeholder="eg " value="{{ $setting->googlemap }}">
-                                 </div>
+                                    <label for="googlemap">Text</label>
+                                    <textarea id="googlemap" class="form-control" name="googlemap" rows="3">{{ $setting->googlemap }}</textarea>
+                                </div>
                                </div>
                            </div>
                            <div class="row">

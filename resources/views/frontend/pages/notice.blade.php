@@ -10,7 +10,7 @@
             <tr>
                 <th>Sn</th>
                 <th>Title</th>
-                <th>File</th>
+                {{-- <th>File</th> --}}
                 <th>Action</th>
             </tr>
         </thead>
@@ -19,8 +19,8 @@
             <tr>
                 <td>{{$loop->index +1}}</td>
                 <td>{{$n->title}}</td>
-                <td>{{$n->file}}</td>
-                <td><a href="{{$n->file}}">Download</a></td>
+                {{-- <td>{{$n->file}}</td> --}}
+                <td><a download="{{$n->file}}" href="">Download</a></td>
             </tr>
             @endforeach
         </tbody>
@@ -28,7 +28,7 @@
             <tr>
                 <th>Sn</th>
                 <th>Title</th>
-                <th>File</th>
+                {{-- <th>File</th> --}}
                 <th>Action</th>
             </tr>
         </tfoot>
