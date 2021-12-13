@@ -44,12 +44,44 @@
 
                                <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="time">Company Time (Optional)</label>
-                                    <input id="time" class="form-control" type="text" name="time" placeholder="eg 10:00 am - 5:00 pm" value="{{ $setting->office_time }}">
+                                    <label for="time">Facebook</label>
+                                    <input id="time" class="form-control" type="text" name="facebook" placeholder="eg " value="{{ $setting->facebook }}">
                                  </div>
                                </div>
                            </div>
 
+                           <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="time">Instagram</label>
+                                    <input id="instagram" class="form-control" type="text" name="instagram" placeholder="eg " value="{{ $setting->instagram}}">
+                                 </div>
+                               </div>
+
+
+                               <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="time">Youtube</label>
+                                    <input id="time" class="form-control" type="text" name="youtube" placeholder="eg youtube" value="{{ $setting->youtube }}">
+                                 </div>
+                               </div>
+                           </div>
+
+                           <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="time">Company Time (Optional)</label>
+                                    <input id="time" class="form-control" type="text" name="time" placeholder="eg 10:00 am - 5:00 pm" value="{{ $setting->office_time }}">
+                                 </div>
+                               </div>
+
+                               <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="time">Google Map</label>
+                                    <input id="google map" class="form-control" type="text" name="googlemap" placeholder="eg " value="{{ $setting->googlemap }}">
+                                 </div>
+                               </div>
+                           </div>
                            <div class="row">
                                <div class="col-md-3">
                                    <div class="form-group">

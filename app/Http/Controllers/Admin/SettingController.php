@@ -56,7 +56,11 @@ class SettingController extends Controller
             $setting->address = $request->address;
             $setting->contact = $request->contact;
             $setting->email = $request->email;
+            $setting->facebook=$request->facebook;
+            $setting->instagram=$request->instagram;
+            $setting->youtube=$request->youtube;
             $setting->office_time = $request->time;
+            $setting->googlemap=$request->googlemap;
 
             //For Logo
 
@@ -114,7 +118,12 @@ class SettingController extends Controller
         $setting->address = $request->address;
         $setting->contact = $request->contact;
         $setting->email = $request->email;
+        $setting->facebook=$request->facebook;
+        $setting->instagram=$request->instagram;
+        $setting->youtube=$request->youtube;
         $setting->office_time = $request->time;
+        $setting->googlemap=$request->googlemap;
+
 
         //For Logo
 

@@ -24,6 +24,7 @@ class CreateSettingsTable extends Migration
             $table->string('youtube')->nullable();
             $table->string('instagram')->nullable();
             $table->string('office_time')->nullable();
+            $table->string('googlemap')->nullable();
             $table->timestamps();
         });
     }

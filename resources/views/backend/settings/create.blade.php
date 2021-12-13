@@ -43,11 +43,44 @@
 
                                <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="time">Company Time (Optional)</label>
-                                    <input id="time" class="form-control" type="text" name="time" placeholder="eg 10:00 am - 5:00 pm">
+                                    <label for="facebook">Facebook</label>
+                                    <input id="text" class="form-control" type="text" name="facebook" placeholder="eg,">
                                  </div>
                                </div>
                            </div>
+
+                           <div class="row">
+                            <div class="col-md-6">
+                             <div class="form-group">
+                                 <label for="instagram">Instagram</label>
+                                 <input id="text" class="form-control" type="text" name="instagram" placeholder="eg,">
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="time">Youtube</label>
+                                    <input id="time" class="form-control" type="text" name="youtube" placeholder="eg 10:00 am - 5:00 pm">
+                                 </div>
+                               </div>
+                           </div>
+
+                           <div class="row">
+                            <div class="col-md-6">
+                             <div class="form-group">
+                                 <label for="time">Company Time (Optional)</label>
+                                 <input id="time" class="form-control" type="text" name="time" placeholder="eg 10:00 am - 5:00 pm">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="time">Google Map</label>
+                                    <input id="text" class="form-control" type="text" name="googlemap" placeholder="eg">
+                                 </div>
+                               </div>
+                           </div>
+                        </div>
+
 
                            <div class="row">
                                <div class="col-md-6">

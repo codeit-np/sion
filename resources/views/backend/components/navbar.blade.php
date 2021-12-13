@@ -12,6 +12,16 @@
         </a>
       </li>
 
+
+      <li class="nav-item">
+        <a href="/sliders" class="nav-link">
+          <i class="nav-icon fas fa-th"></i>
+          <p>
+            Slider
+          </p>
+        </a>
+      </li>
+
       <li class="nav-item">
         <a href="/setting" class="nav-link">
           <i class="nav-icon fas fa-cogs"></i>
@@ -29,6 +39,15 @@
           </p>
         </a>
       </li> --}}
+
+      <li class="nav-item">
+        <a href="/download" class="nav-link">
+          <i class="nav-icon fas fa-cogs"></i>
+          <p>
+           Downloads
+          </p>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a href="/about" class="nav-link">

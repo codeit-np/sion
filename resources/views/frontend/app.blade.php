@@ -8,9 +8,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <title>{{ $setting->name??'CODE IT' }}</title>
+    @yield('style')
 
   </head>
   <body>
@@ -35,7 +39,9 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
             <div class="container">
               <a class="navbar-brand" href="/">
+                @if($setting=null)?<h1>No Title Found</h1>:
                   <img src="{{asset($setting->logo) }}" width="62" alt="">
+                  @endif
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -51,7 +57,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         @foreach ($aboutMenue as $item)
+                        @if($item=null)?No data found:
                              <li><a class="dropdown-item" href="/about-us/{{ $item->id }}">{{ $item->title }}</a></li>
+                             @endif
                         @endforeach
 
                     </ul>
@@ -75,17 +83,16 @@
                       Downloads
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Academic Calendar </a></li>
-                      <li><a class="dropdown-item" href="#">Prospectus</a></li>
-                      <li><a class="dropdown-item" href="#">Application Form for Admission</a></li>
-                      <li><a class="dropdown-item" href="#">Document Request Form</a></li>
+                        @foreach ($download as $d )
+                        <li><a class="dropdown-item" href="{{$d->link}}" target="_blank">{{$d->title}}</a></li>
+                        @endforeach
                     </ul>
                   </li>
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a class="nav-link" href="#">Career</a>
-                  </li>
+                  </li> --}}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{route('contact')}}">Contact</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/photogallery">Gallery</a>
@@ -106,10 +113,56 @@
         <!-- Main Content End -->
 
         <!-- Footer -->
-        <footer></footer>
+        <footer class="section footer-classic context-dark bg-image">
+            <div class="container px-4">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+                        <h3 class="red_sketch widgettitle">About Us</h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat saepe dolorum obcaecati voluptatibus sequi voluptate temporibus placeat laboriosam, harum laborum officia, qui culpa, aperiam maxime fuga officiis eligendi! Unde.</p>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12">
+                        <h3 class="orange_sketch widgettitle">Contact Us</h3>
+                        <dl class="contact-list">
+                            <dt>
+                             <i class="fa fa-map-marker" aria-hidden="true"></i>
+                             Address
+                            </dt>
+                            <dd>Dharan</dd>
+                        </dl>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12">
+                        <h3 class="pink_sketch widgettitle">Services</h3>
+                        <p>
+                            <span>✓<span> This is paragraph
+                        </p>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12">
+                        <h3 class="green_sketch widgettitle">Links</h3>
+                        <ul class="nav-list">
+                            <li><a href="">Home</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <!-- Footer End -->
 
         <!-- JS -->
+        <script  src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script  src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script>$(document).ready(function() {
+            $('#example').DataTable();
+        } );</script>
+
+        {{-- popup --}}
+        <script type="text/javascript">
+          $(document).ready(function(){
+        $("#exampleModal").modal('show');
+    });
+        </script>
   </body>
 </html>
