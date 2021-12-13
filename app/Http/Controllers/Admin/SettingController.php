@@ -90,7 +90,8 @@ class SettingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $setting = Setting::find($id);
+        return view('backend.settings.edit',compact('setting'));
     }
 
     /**
@@ -102,7 +103,30 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'contact' => 'required',
+        ]);
+
+        $setting =  Setting::find($id);
+        $setting->name = $request->name;
+        $setting->address = $request->address;
+        $setting->contact = $request->contact;
+        $setting->email = $request->email;
+        $setting->office_time = $request->time;
+
+        //For Logo
+
+        if($request->hasFile('logo')){
+            $file = $request->logo;
+            $newName = time() . $file->getClientOriginalName();
+            $file->move('images',$newName);
+            $setting->logo = 'images/' . $newName;
+        }
+        $setting->save();
+        $request->session()->flash('message','Record Updated Successfully');
+        return redirect()->back();
     }
 
     /**

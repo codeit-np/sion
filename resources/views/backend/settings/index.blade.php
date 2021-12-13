@@ -33,7 +33,7 @@
                             <td>{{ $setting->email }}</td>
                             <td>{{ $setting->office_time }}</td>
                             <td>
-                                <a href="" class="badge bg-primary">Edit</a>
+                                <a href="/setting/{{ $setting->id }}/edit" class="badge bg-primary">Edit</a>
                             </td>
                         </tr>
                     </table>
