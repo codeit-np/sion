@@ -85,20 +85,26 @@
             <div class="row">
                 <div class="col-md-4">
                     <img src="https://kws.edu.np/assets/img/plus_slider/ele.jpg" class="img-fluid" alt="">
-                    @if($preprimary=null)?<h1>No Title Found</h1>:
+                    @if($preprimary==null)
+                    <h1>No Title Found</h1>
+                    @else
                     <h2>{{ $preprimary->title }}</h2>
                     @endif
-                    @if($preprimary=null)?<h1>No Description Found</h1>:
+                    @if($preprimary==null)
+                    <h1>No Description Found</h1>
+                    @else
                     {!! Str::limit($preprimary->description,100) !!}
                     @endif
 
-                    @if($preprimary=null)?<h1>No Image Found</h1>:
-
+                    @if($preprimary==null)
+                    <h1>No Image Found</h1>:
+                    @else
                     <img src="{{ asset($preprimary->image) }}" class="img-fluid py-2" alt="">
                     @endif
 
-                    @if($preprimary=null)?<h1>No Id Found</h1>:
-
+                    @if($preprimary==null)
+                    <h1>No Id Found</h1>
+                    @else
                     <a href="/informations/{{ $preprimary->id }}" class="btn btn-danger ">Readmore</a>
                     @endif
                 </div>
@@ -121,16 +127,22 @@
         <div class="container">
            <div class="row">
             <div class="col-md-6">
-                @if($about=null)?<h1>No Title Found</h1>:
+                @if($about==null)
+                <h1>No Title Found</h1>
+                @else
                 <h1>{{ $about->title }}</h1>
                 @endif
                 <div class="line"></div>
-                @if($about=null)?<h1>No Title Found</h1>:
+                @if($about==null)
+                <h1>No Title Found</h1>
+                @else
                 {!! Str::limit($about->description,700) !!}
                 @endif
                 <div></div>
 
-                @if($about=null)?<h1>No  Found</h1>:
+                @if($about==null)
+                <h1>No  Found</h1>
+                @else
                 <a href="/about-us/{{ $about->id }}" class="btn btn-danger">Readmore</a>
                 @endif
             </div>
