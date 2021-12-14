@@ -47,7 +47,7 @@
                 <address>
                     {{ $setting->address }} <br>
                     <strong>Tel: </strong><a href="tel:{{$setting->contact}}" style="text-decoration:none;color:#000;">{{ $setting->contact }}</a> <br>
-                    <strong>Email</strong> {{ $setting->email }}
+                    <strong>Email</strong><a href=""> {{ $setting->email }}
                 </address>
             </div>
 
