@@ -186,6 +186,7 @@
                     </div>
                     <div class="padding-30 rounded bordered">
                         <div class="row gy-5">
+                            @if(!empty($firstblog))
                             <div class="col-sm-6">
                                 <!-- post  -->
                                 <div class="post">
@@ -214,8 +215,11 @@
                                     </p>
                                 </div>
                             </div>
+                            @else
+                            @endif
                             <div class="col-sm-6">
                                 @foreach ($nextblog as $nb )
+                                @if(!empty($nb))
                                 <div class="post post-list-sm square">
                                     <div class="thumb rounded">
                                         <a href="/singlepage/{{$nb->slug}}">
@@ -235,6 +239,8 @@
                                         </ul>
                                     </div>
                                 </div>
+                                @else
+                                @endif
                                 @endforeach
 
                             </div>
@@ -251,6 +257,7 @@
                     </div>
                     <div class="padding-30 rounded bordered">
                         <div class="row gy-5">
+                            @if(!empty($firstnewsandevent))
                             <div class="col-sm-6">
                                 <!-- post  -->
                                 <div class="post">
@@ -279,8 +286,11 @@
                                     </p>
                                 </div>
                             </div>
+                            @else
+                            @endif
                             <div class="col-sm-6">
                                 @foreach ($nextnewsandevent as $nne )
+                                @if(!empty($nne))
                                 <div class="post post-list-sm square">
                                     <div class="thumb rounded">
                                         <a href="/singleevent/{{$nne->slug}}">
@@ -300,6 +310,8 @@
                                         </ul>
                                     </div>
                                 </div>
+                                @else
+                                @endif
                                 @endforeach
                             </div>
 
