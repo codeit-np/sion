@@ -17,7 +17,8 @@
             <!-- All the inputs are situated here  -->
             <div class="form-div col-lg-6 bg-light mx-4">
                 <h3>Ready to Get Started?</h3>
-                <form action="#">
+                <form action="/contact/send" method="post">
+                    @csrf
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" placeholder="Enter name" required>
                       </div>
@@ -27,9 +28,11 @@
                       <div class="form-group">
                         <textarea class="form-control" rows="8" id="message" placeholder="Message"></textarea>
                       </div>
+                      <p><div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div></p>
                       <div class="form-group">
                           <button type="submit" class="btn btn-danger" id="btnSubmit">Send Message</button>
                       </div>
+
                 </form>
             </div>
 
@@ -43,7 +46,7 @@
                 <h5 class="mb-3">Our Location</h5>
                 <address>
                     {{ $setting->address }} <br>
-                    <strong>Tel: </strong> {{ $setting->contact }} <br>
+                    <strong>Tel: </strong><a href="tel:{{$setting->contact}}" style="text-decoration:none;color:#000;">{{ $setting->contact }}</a> <br>
                     <strong>Email</strong> {{ $setting->email }}
                 </address>
             </div>

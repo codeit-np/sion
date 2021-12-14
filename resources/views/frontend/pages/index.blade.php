@@ -6,16 +6,14 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Notice</h5>
+        {{-- <div class="modal-header">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+        </div> --}}
         <div class="modal-body">
-          @if($firstnotice)?<h2>No Notice Found</h2>:<h6>{{$firstnotice->title}}</h6>
+          @if($firstnotice==null)<h2>No Notice Found</h2>@else
+            <img src="{{asset($firstnotice->file)}}" width="100%;" height="800px;">
+        </h6>
           @endif
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -24,7 +22,7 @@
      <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ asset('slides/1.png') }}" class="d-block w-100" alt="...">
+            <img src="{{ asset($firstslide->file) }}" class="d-block w-100" alt="...">
           </div>
           @foreach ($nextslide as $ns )
           <div class="carousel-item">
@@ -45,7 +43,8 @@
     <!-- Slider End -->
 
     <!-- Message From Principal -->
-    <div class="div py-5">
+    <div class="div">
+        {{-- changed py-5 from empty --}}
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-4">
@@ -175,4 +174,141 @@
         </div>
     </div>
     <!-- Video Gallery End -->
+
+    {{-- Blogs --}}
+    <section class="main-content">
+        <div class="container-xl">
+            <div class="row gy-4">
+                <div class="col-lg-6">
+                    <div class="section-header">
+                        <h3 class="section-title">Blogs</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="padding-30 rounded bordered">
+                        <div class="row gy-5">
+                            <div class="col-sm-6">
+                                <!-- post  -->
+                                <div class="post">
+                                    <div class="thumb rounded">
+                                        <a href="/singlepage/{{$firstblog->slug}}">
+                                            <div class="inner">
+                                                <img src="{{asset($firstblog->image)}}" class="img-fluid  rounded" alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <ul class="meta list-inline mt-4 mb-0">
+                                        {{-- <li class="list-inline-item">
+                                            <a href="#">
+                                                <img class="author" src="http://127.0.0.1:8000/slides/1.png" class="img-fluid" alt="" width="100px;">
+                                                Techie Coder
+                                            </a>
+                                        </li> --}}
+                                        <li class="list-inline-item">{{$firstblog->created_at->format('d M Y')}}</li>
+                                    </ul>
+                                    <h5 class="post-title mb-3 mt-3">
+                                        <a href="/singlepage/{{$firstblog->slug}}">{{$firstblog->title}}</a>
+                                    </h5>
+                                    <p class="excerpt mb-0 text-justify">
+                                      {!!$firstblog->content!!}
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                @foreach ($nextblog as $nb )
+                                <div class="post post-list-sm square">
+                                    <div class="thumb rounded">
+                                        <a href="/singlepage/{{$nb->slug}}">
+                                            <div class="inner">
+                                                <img src="{{asset($nb->image)}}" class="img-fluid" alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="details clearfix">
+                                        <h6 class="post-title my-0">
+                                            <a href="/singlepage/{{$nb->slug}}">
+                                               {{$nb->title}}
+                                            </a>
+                                        </h6>
+                                        <ul class="meta list-inline mt-1 mb-0">
+                                            <li class="list-inline-item">{{$nb->created_at->format('d M Y')}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                @endforeach
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {{-- /Blogs --}}
+
+                <div class="col-lg-6">
+                    <div class="section-header">
+                        <h3 class="section-title">News & Events</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="padding-30 rounded bordered">
+                        <div class="row gy-5">
+                            <div class="col-sm-6">
+                                <!-- post  -->
+                                <div class="post">
+                                    <div class="thumb rounded">
+                                        <a href="/singleevent/{{$firstnewsandevent->slug}}">
+                                            <div class="inner">
+                                                <img src="{{asset($firstnewsandevent->image)}}" class="img-fluid  rounded" alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <ul class="meta list-inline mt-4 mb-0">
+                                        {{-- <li class="list-inline-item">
+                                            <a href="#">
+                                                <img class="author" src="http://127.0.0.1:8000/slides/1.png" class="img-fluid" alt="" width="100px;">
+                                                Techie Coder
+                                            </a>
+                                        </li> --}}
+                                        <li class="list-inline-item">{{$firstnewsandevent->date}}</li>
+                                    </ul>
+                                    <h5 class="post-title mb-3 mt-3">
+                                        <a href="/singleevent/{{$firstnewsandevent->slug}}">{{$firstnewsandevent->title}}</a>
+                                    </h5>
+                                    <p class="excerpt mb-0">
+                                        {!!$firstnewsandevent->content!!}
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                @foreach ($nextnewsandevent as $nne )
+                                <div class="post post-list-sm square">
+                                    <div class="thumb rounded">
+                                        <a href="/singleevent/{{$nne->slug}}">
+                                            <div class="inner">
+                                                <img src="{{asset($nne->image)}}" class="img-fluid" alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="details clearfix">
+                                        <h6 class="post-title my-0">
+                                            <a href="/singleevent/{{$nne->slug}}">
+                                                {{$nne->title}}
+                                            </a>
+                                        </h6>
+                                        <ul class="meta list-inline mt-1 mb-0">
+                                            <li class="list-inline-item">{{$nne->date}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+    </div>
+</div>
+</section>
+    {{-- /News and events --}}
 @endsection

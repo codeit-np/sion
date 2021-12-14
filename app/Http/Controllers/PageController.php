@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Blog;
+use App\Models\Contact;
 use App\Models\Download;
 use App\Models\Gallery;
 use App\Models\GalleryDetail;
 use App\Models\Information;
+use App\Models\Newsandevents;
 use App\Models\Notice;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use App\Rules\GoogleRecaptcha;
 
 class PageController extends Controller
 {
@@ -26,10 +30,14 @@ class PageController extends Controller
        $preprimary = Information::where('id',6)->first();
        $firstnotice=Notice::orderBy('id','desc')->take(1)->first();
        $firstslide=Slider::OrderBy('id','desc')->take(1)->first();
-       $nextslide=Slider::skip(1)->take(2)->get();
+       $nextslide=Slider::orderBy('id','desc')->skip(1)->take(2)->get();
+       $firstblog=Blog::orderBy('id','desc')->take(1)->first();
+       $nextblog=Blog::orderBy('id','desc')->skip(1)->take(4)->get();
+       $firstnewsandevent=Newsandevents::orderBy('id','desc')->take(1)->first();
+       $nextnewsandevent=Newsandevents::orderBy('id','desc')->skip(1)->take(4)->get();
        $videos = Video::paginate(3);
 
-       return view('frontend.pages.index',compact('setting','aboutMenue','informationMenu','message','about','preprimary','videos','download','firstnotice','firstslide','nextslide'));
+       return view('frontend.pages.index',compact('setting','aboutMenue','informationMenu','message','about','preprimary','videos','download','firstnotice','firstslide','nextslide','firstblog','nextblog','firstnewsandevent','nextnewsandevent'));
    }
 
    public function about($id)
@@ -108,6 +116,45 @@ class PageController extends Controller
        return view('frontend.pages.notice',compact('notice','setting','aboutMenue','informationMenu','photogallery','download'));
    }
 
+   public function contactsend(Request $request)
+   {
+       $this->validate($request,[
+           "name"=>"required",
+           "email"=>"required",
+           "message"=>"required",
+        'g-recaptcha-response' => ['required', new GoogleRecaptcha]
+       ]);
+
+       $contact=Contact::create([
+           "name"=>$request->name,
+           "email"=>$request->email,
+           "message"=>$request->message
+       ]);
+
+       return redirect()->back();
+
+
+   }
+
+   public function singlepage($slug)
+   {
+       $singleblog=Blog::where('slug','=',$slug)->first();
+       $setting = Setting::first();
+       $aboutMenue = About::all();
+       $informationMenu = Information::all();
+       $download=Download::take(4)->orderBy('id','desc')->get();
+       return view('frontend.pages.singlepage',compact('setting','aboutMenue','informationMenu','download','singleblog'));
+   }
+
+   public function singleevent($slug)
+   {
+       $singleevent=Newsandevents::where('slug','=',$slug)->first();
+       $setting = Setting::first();
+       $aboutMenue = About::all();
+       $informationMenu = Information::all();
+       $download=Download::take(4)->orderBy('id','desc')->get();
+       return view('frontend.pages.singleevent',compact('setting','aboutMenue','informationMenu','download','singleevent'));
+   }
 
 
 }

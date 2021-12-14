@@ -20,7 +20,7 @@
                 <td>{{$loop->index +1}}</td>
                 <td>{{$n->title}}</td>
                 {{-- <td>{{$n->file}}</td> --}}
-                <td><a download="{{$n->file}}" href="">Download</a></td>
+                <td><a href="{{$n->file}}" href="" target="_blank"><i class="fa fa-eye"></i></a></td>
             </tr>
             @endforeach
         </tbody>

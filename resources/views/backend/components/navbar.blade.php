@@ -12,16 +12,6 @@
         </a>
       </li>
 
-
-      <li class="nav-item">
-        <a href="/sliders" class="nav-link">
-          <i class="nav-icon fas fa-th"></i>
-          <p>
-            Slider
-          </p>
-        </a>
-      </li>
-
       <li class="nav-item">
         <a href="/setting" class="nav-link">
           <i class="nav-icon fas fa-cogs"></i>
@@ -30,6 +20,18 @@
           </p>
         </a>
       </li>
+
+
+      <li class="nav-item">
+        <a href="/sliders" class="nav-link">
+          <i class="nav-icon fas fa-image"></i>
+          <p>
+            Slider
+          </p>
+        </a>
+      </li>
+
+
 
       {{-- <li class="nav-item">
         <a href="/principal" class="nav-link">
@@ -42,7 +44,7 @@
 
       <li class="nav-item">
         <a href="/download" class="nav-link">
-          <i class="nav-icon fas fa-cogs"></i>
+          <i class="nav-icon fas fa-file"></i>
           <p>
            Downloads
           </p>
@@ -95,7 +97,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="/newsandevent" class="nav-link">
           <i class="nav-icon fas fa-calendar-alt"></i>
           <p>
            Events
@@ -104,7 +106,7 @@
       </li>
 
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="/blogs" class="nav-link">
           <i class="nav-icon fas fa-blog"></i>
           <p>
             Blog

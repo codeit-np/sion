@@ -148,7 +148,7 @@ ul{
 
 /* footer */
 .bg-image {
-    /* background-image: url("https://kidsglow.edu.np/frontend/images/footer.jpg"); */
+    background-image: url("https://kidsglow.edu.np/frontend/images/footer.jpg");
     background-color:#fff;
     background-size: cover;
     background-repeat: no-repeat;
@@ -183,7 +183,7 @@ footer h3 {
     font-family: "Bubblegum Sans", cursive;
     font-size: 22px;
 }
-footer h3.widgettitle.red_sketch:after {
+/* footer h3.widgettitle.red_sketch:after {
     background-color: rgb(49, 4, 4);
 }
 footer h3.widgettitle:after {
@@ -212,8 +212,145 @@ footer h3.widgettitle.pink_sketch:after {
 
 footer h3.widgettitle.green_sketch:after {
     background-color: #acc158;
-}
+} */
 .nav-list li a{
     color:#000;
 }
+
+
+/* blog */
+.main-content {
+    margin-top: 60px;
+    margin-bottom:10px;
+}
+
+.section-header {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.section-title {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* *********************** */
+
+.post.post-list-sm .thumb {
+    float: left;
+    position: relative;
+}
+
+.post .thumb.rounded .inner {
+    border-radius: 10px;
+    overflow: hidden;
+}
+img{
+    max-width:100%;
+    height:auto;
+}
+
+.bordered {
+    border: 1px solid #ebebeb;
+}
+.rounded {
+    border-radius: 10px !important;
+}
+h5{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 20px 0;
+}
+
+.post .post-title a {
+    color: #203656;
+    text-decoration:none;
+}
+
+.post.post-list-sm .post-title {
+    font-size: 14px;
+}
+.post.post-list-sm {
+    clear: both;
+}
+
+.padding-30 {
+    padding: 30px;
+    background-color:whitesmoke;
+}
+
+.post .post-format {
+    color: #fff;
+    display: block;
+    border-radius: 50%;
+    font-size: 20px;
+    height: 50px;
+    line-height: 54px;
+    right: 20px;
+    text-align: center;
+    bottom: -25px;
+    position: absolute;
+    width: 50px;
+    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.15);
+    background-color: #6e72fc;
+    background: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%);
+    z-index: 1;
+}
+
+.post .meta li img.author {
+    margin-right: 12px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.post.post-list-sm.square .thumb {
+    max-width: 110px;
+}
+
+.post.post-list-sm.square .details {
+    margin-left: 130px;
+}
+
+/* ******************* */
+
+.post.post-list-sm.before-seperator::before {
+    content: "";
+    display: block;
+    height: 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+    background: #ebebeb;
+    background: linear-gradient(to left, #ebebeb 0%, transparent 100%);
+}
+
+.post.post-list-sm.before-seperator::after {
+    content: "";
+    display: none;
+}
+
+.post.post-list-sm::after {
+    content: "";
+    display: block;
+    height: 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+    background: #ebebeb;
+    background: linear-gradient(to left, #ebebeb 0%, transparent 100%);
+}
+.post .thumb img {
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+}
+.inner img:hover{
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
+
+}
+
+/* ************** */
+/* /blog */
 

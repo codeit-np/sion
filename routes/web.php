@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DownloadController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\InformationController;
+use App\Http\Controllers\Admin\NewsandeventsController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
@@ -11,6 +13,7 @@ use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\PageController;
 use App\Models\About;
 use App\Models\Information;
+use App\Models\Newsandevents;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +37,9 @@ Route::get('/informations/{id}',[PageController::class,'information']);
 Route::get('/photogallery',[PageController::class,'photogallery']);
 Route::get('/photogallery/{id}',[PageController::class,'photogalleryimages']);
 Route::get('/video-gallery',[PageController::class,'videogallery']);
+Route::post('contact/send',[PageController::class,'contactsend']);
+Route::get('singlepage/{slug}',[PageController::class,'singlepage']);
+Route::get('singleevent/{slug}',[PageController::class,'singleevent']);
 
 Auth::routes(['register' => true]);
 
@@ -48,5 +54,7 @@ Route::resource('gallery', GalleryController::class);
 Route::resource('video', VideoController::class);
 Route::resource('post-notice', NoticeController::class);
 Route::resource('sliders',SliderController::class);
+Route::resource('/blogs', BlogController::class);
+Route::resource('/newsandevent', NewsandeventsController::class);
 
 

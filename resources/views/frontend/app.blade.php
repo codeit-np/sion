@@ -12,8 +12,13 @@
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/simple-line-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <title>{{ $setting->name??'CODE IT' }}</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
     @yield('style')
 
   </head>
@@ -118,11 +123,16 @@
 
         <!-- Footer -->
         <footer class="section footer-classic context-dark bg-image">
-            <div class="container px-4">
+            <div class="container-fluid px-4 pt-4">
                 <div class="row">
                     <div class="col-md-3 col-sm-12">
                         <h3 class="red_sketch widgettitle">About Us</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat saepe dolorum obcaecati voluptatibus sequi voluptate temporibus placeat laboriosam, harum laborum officia, qui culpa, aperiam maxime fuga officiis eligendi! Unde.</p>
+                        @foreach ($aboutMenue as $am )
+                        @if ($am->id==1)
+                        <p>{!! Str::limit($am->description,200)!!}</p>
+                        @endif
+                        @endforeach
+
                     </div>
 
                     <div class="col-md-3 col-sm-12">
@@ -132,22 +142,32 @@
                              <i class="fa fa-map-marker" aria-hidden="true"></i>
                              Address
                             </dt>
-                            <dd>Dharan</dd>
-                        </dl>
-                    </div>
+                            <dd>{{$setting->contact}}</dd>
+                            <dt>
+                                <i class="fa-solid fa-phone"></i>
+                                Contact
+                               </dt>
+                               <dd>{{$setting->contact}}</dd>
 
-                    <div class="col-md-3 col-sm-12">
-                        <h3 class="pink_sketch widgettitle">Services</h3>
-                        <p>
-                            <span>✓<span> This is paragraph
-                        </p>
+                               <dt>
+                                <i class="fa-solid fa-envelope"></i>
+                                Email
+                               </dt>
+                               <dd>{{$setting->email}}</dd>
+                        </dl>
                     </div>
 
                     <div class="col-md-3 col-sm-12">
                         <h3 class="green_sketch widgettitle">Links</h3>
                         <ul class="nav-list">
-                            <li><a href="">Home</a></li>
+                            <li><a href="{{$setting->facebook}}"><i class="fas fa-facebook-square" aria-hidden="true"></i></a></li>
+                            <li> <a href="{{$setting->instagram}}"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="{{$setting->youtube}}"><i class="fa-brands fa-youtube"></i></a></li>
                         </ul>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%;" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
             </div>
@@ -168,5 +188,6 @@
         $("#exampleModal").modal('show');
     });
         </script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
   </body>
 </html>

@@ -16,6 +16,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
   <style>
     .ck-editor__editable_inline {
@@ -262,12 +263,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- CK Editor -->
 <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+   <!-- JS -->
+   <script  src="https://code.jquery.com/jquery-3.5.1.js"></script>
+   <script  src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script>
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
         .catch( error => {
             console.error( error );
         } );
+</script>
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
 </script>
 </body>
 </html>
