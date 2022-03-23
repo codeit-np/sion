@@ -1,18 +1,27 @@
 @extends('frontend.app')
 @section('content')
+
 <div class="container py-5">
-    <h1>Blogs</h1>
-    <div class="line"></div>
-</div>
-<div class="container">
     <div class="row">
-        <div class="col-lg-12 p-2">
-            <h1 class="text-center">{{$singleblog->title}}</h1>
-        </div>
-        <div class="col-lg-8 justify-center p-2 container">
+        <div class="col-lg-10">
+            <h1>{{$singleblog->title}}</h1>
             <img src="{{asset($singleblog->image)}}" width="100%;">
+            <div><p>{!!$singleblog->content!!}</p></div>
+
         </div>
-        <div><p>{!!$singleblog->content!!}</p></div>
+        <div class="col-lg-2 mt-md-5">
+            <div class="row">
+                @foreach ($blogs as $b )
+                <div class="col-md-12 card">
+                    <img src="{{asset($b->image)}}" class="img-fluid" style="max-height:200px;">
+                    <strong><a href="/singlepage/{{$b->slug}}" style="text-decoration: none;color:#000;">{{$b->title}}</a></strong>
+
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+
     </div>
 </div>
 @endsection

@@ -7,7 +7,6 @@
         @foreach ($photogallery as $item)
             <div class="col-md-3">
                 <div class="card">
-                    <h5>{{ $item->id }}</h5>
                     <img src="{{ asset($item->featured) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                       <p class="card-text">{{ Str::limit($item->name,50) }}</p>

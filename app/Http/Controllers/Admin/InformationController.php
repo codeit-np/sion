@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Information;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class InformationController extends Controller
 {
@@ -43,11 +44,13 @@ class InformationController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image' => 'required',
+            "slug"=>"unique:blogs",
         ]);
 
         $information = new Information();
         $information->title = $request->title;
         $information->description = $request->description;
+        $information->slug=Str::slug($request->title);
         //For Photo
 
         if($request->hasFile('image')){
@@ -100,6 +103,7 @@ class InformationController extends Controller
 
         $information = Information::find($id);
         $information->title = $request->title;
+        $information->slug=Str::slug($request->title);
         $information->description = $request->description;
         //For Photo
 

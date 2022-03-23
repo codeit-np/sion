@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AboutController extends Controller
 {
@@ -52,6 +53,7 @@ class AboutController extends Controller
         $about = new About();
         $about->title = $request->title;
         $about->description = $request->description;
+        $about->slug=Str::slug($request->title);
         //For Photo
 
         if($request->hasFile('photo')){
@@ -105,6 +107,7 @@ class AboutController extends Controller
         $about =  About::find($id);
         $about->title = $request->title;
         $about->description = $request->description;
+        $about->slug=Str::slug($request->title);
         //For Photo
 
         if($request->hasFile('photo')){

@@ -95,6 +95,15 @@
           </p>
         </a>
       </li>
+      
+        <li class="nav-item">
+        <a href="/admissionview" class="nav-link">
+          <i class="nav-icon fas fa-photo-video"></i>
+          <p>
+            Admission
+          </p>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a href="/newsandevent" class="nav-link">
@@ -122,7 +131,27 @@
           </p>
         </a>
       </li>
-
+      
+       <li class="nav-item">
+        <a href="/contacts" class="nav-link">
+         <i class="far fa-envelope"></i>
+          <p>
+             Contact
+          </p>
+        </a>
+      </li>
+      
+       <li class="nav-item">
+        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+             <i class="fas fa-sign-out-alt"></i>
+          <p>
+             Logout
+          </p>
+        </a>
+         <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+       {{ csrf_field() }}
+             </form>
+      </li>
 
     </ul>
   </nav>

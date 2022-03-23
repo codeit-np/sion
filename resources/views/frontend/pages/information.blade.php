@@ -12,6 +12,8 @@
             <h1>{{ $information->title }}</h1>
             <div class="line"></div>
             {!! $information->description !!}
+            
+           
         </div>
 
         <div class="col-md-4">
@@ -23,7 +25,7 @@
                     <table>
                         @foreach ($informationMenu as $item)
                                 <tr>
-                                   <td> <a class="text-decoration-none badge bg-info" href="/informations/{{ $item->id }}">{{ $item->title }}</a></td>
+                                   <td> <a class="text-decoration-none badge bg-info" href="/informations/{{ $item->slug}}">{{ $item->title }}</a></td>
                                 </tr>
                         @endforeach
                     </table>
@@ -38,7 +40,7 @@
                     <table>
                         @foreach ($aboutMenue as $item)
                                 <tr>
-                                   <td> <a class="text-decoration-none badge bg-info" href="/about-us/{{ $item->id }}">{{ $item->title }}</a></td>
+                                   <td> <a class="text-decoration-none badge bg-info" href="/about-us/{{ $item->slug }}">{{ $item->title }}</a></td>
                                 </tr>
                         @endforeach
                     </table>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Video;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class VideoController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $video = Video::all();
-        // return $video;
-        return view('backend.video.index',compact('video'));
+        $contact=Contact::all();
+        return view('backend.contact.index',compact('contact'));
     }
 
     /**
@@ -27,9 +26,7 @@ class VideoController extends Controller
      */
     public function create()
     {
-
-
-        return view('backend.video.create');
+        //
     }
 
     /**
@@ -40,18 +37,7 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'video' => 'required',
-        ]);
-
-        $video = new Video();
-        $video->title = $request->title;
-        $video->video = $request->video;
-        //For Photo
-        $video->save();
-        $request->session()->flash('message','Record Saved Successfully');
-        return redirect()->back();
+        //
     }
 
     /**
@@ -73,8 +59,7 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        $video = Video::find($id);
-        return view('backend.video.edit',compact('video'));
+        //
     }
 
     /**
@@ -86,18 +71,7 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'video' => 'required',
-        ]);
-
-        $video = Video::find($id);
-        $video->title = $request->title;
-        $video->video = $request->video;
-        //For Photo
-        $video->update();
-        $request->session()->flash('message','Record Updated Successfully');
-        return redirect()->back();
+        //
     }
 
     /**
@@ -108,8 +82,8 @@ class VideoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact=Contact::find($id);
+        $contact->delete();
+        return redirect()->back();
     }
-
-
 }

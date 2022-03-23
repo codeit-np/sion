@@ -74,9 +74,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="time">Google Map</label>
-                                    <input id="text" class="form-control" type="text" name="googlemap" placeholder="eg">
-                                 </div>
+                                    <label for="googlemap">Google Map (Optional)</label>
+                                    <textarea id="googlemap" class="form-control" name="googlemap" rows="3"></textarea>
+                                </div>
                                </div>
                            </div>
                         </div>
